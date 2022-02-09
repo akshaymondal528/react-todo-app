@@ -1,0 +1,16 @@
+.todolist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  width: 20rem;
+  border: 1px solid #d3d2d2;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.5rem;
+}

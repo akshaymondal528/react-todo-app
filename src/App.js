@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useState } from 'react';
+import TodoList from './components/todolist/TodoList';
+import NewTodo from './components/newtodo/NewTodo';
 
-function App() {
+const App = () => {
+  const [todoList, setTodoList] = useState([]);
+
+  const addNewTodoHandler = newTodoList => {
+    setTodoList(prevTodoList => prevTodoList.concat(newTodoList));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <h1 style={{ textAlign: 'center' }}>ToDo App</h1>
+      <NewTodo onAddTodo={addNewTodoHandler} />
+      <TodoList todos={todoList} />
+    </Fragment>
   );
-}
+};
 
 export default App;
